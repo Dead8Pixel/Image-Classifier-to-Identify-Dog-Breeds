@@ -44,11 +44,12 @@ def get_pet_labels(image_dir):
     results_dic = {}
     
     for file in file_names:
-        label = ""
-        for word in file.lower().split('_'):
-            if word.isalpha() :
-                label += word + ' '
-        results_dic[file] = [label.strip()]
+        if file[0] != '.':
+            label = ""
+            for word in file.lower().split('_'):
+                if word.isalpha() :
+                    label += word + ' '
+            results_dic[file] = [label.strip()]
         
     
     return results_dic
